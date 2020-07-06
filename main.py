@@ -17,7 +17,10 @@ driver = webdriver.Chrome(chromedriver, chrome_options=chrome_options)
 
 class InstaBot:
 	def __init__(self, username, password):
-		# define a chrome wbedriver
+		
+		self.username = username
+
+		# define a chrome webdriver
 		self.driver = webdriver.Chrome()
 		
 		# have the webdriver input a web address

@@ -17,18 +17,26 @@ driver = webdriver.Chrome(chromedriver, chrome_options=chrome_options)
 
 class InstaBot:
 	def __init__(self, username, password):
+		# define a chrome wbedriver
 		self.driver = webdriver.Chrome()
+		
+		# have the webdriver input a web address
 		self.driver.get("https://instagram.com")
+		
 		# wait 2 secs
 		sleep(2)
 		
 		# find username box, then send username credentials
 		#
-		# to find input type for the username and password box
+		# !! to locate elements for the username, password and login button
 		# simply right click the username or password box and select
 		# inspect. right click body tag, expand.
 		#
-		#find identifiers for username, password and login
+		# find identifiers for username, password and login
+		#
+		# identifier for username is name="username"
+		# for password name="password"
+		# for log in button type="submit"
 
 		self.driver.find_element_by_xpath('//input[@name=\"username\"]').send_keys(username)
 

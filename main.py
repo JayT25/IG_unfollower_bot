@@ -30,20 +30,30 @@ class InstaBot:
 		#
 		#find identifiers for username, password and login
 
-		self.driver.find_element_by_xpath('//input[@name=\"username\"]')\
-		.send_keys(username)
+		self.driver.find_element_by_xpath('//input[@name=\"username\"]').send_keys(username)
 
 		# find password box, then send pass credentials
-		self.driver.find_element_by_xpath('//input[@name=\"password\"]')\
-		.send_keys(password)
+		self.driver.find_element_by_xpath('//input[@name=\"password\"]').send_keys(password)
 
 		# find log in button, click it
-		self.driver.find_element_by_xpath('//button[@type="submit"]')\
-		.click()
+		self.driver.find_element_by_xpath('//button[@type="submit"]').click()
 		# successfully logged in
 
-		# wait 4 secs
-		sleep(4)
+		# wait 2 secs
+		sleep(2)
+
+		# instagram has a pop up 
+		# that asks to save info, click 'Not Now'
+		# find the element with the Not Now button identifier, click it
+		self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
+
+		# wait before next action
+		sleep(2)
+
+		# another pop up asks to turn on notifications, click 'Not Now'
+		self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]").click()
+
+
 		return driver
 
 # instagram username: TestSB_1
